@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-jul-2022 20:25:01 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Ciudad" table="ciudad" catalog="divisionpolitica">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="region" class="modelos.Region" fetch="select">
+            <column name="IdRegion" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="50" not-null="true" />
+        </property>
+        <property name="area" type="java.lang.Float">
+            <column name="Area" precision="12" scale="0" />
+        </property>
+        <property name="poblacion" type="java.lang.Integer">
+            <column name="Poblacion" />
+        </property>
+        <property name="capitalPais" type="boolean">
+            <column name="CapitalPais" not-null="true" />
+        </property>
+        <property name="capitalRegion" type="boolean">
+            <column name="CapitalRegion" not-null="true" />
+        </property>
+        <property name="areaMetropolitana" type="boolean">
+            <column name="AreaMetropolitana" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

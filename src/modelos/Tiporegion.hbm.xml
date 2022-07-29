@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-jul-2022 20:25:01 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="modelos.Tiporegion" table="tiporegion" catalog="divisionpolitica">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="tipoRegion" type="string">
+            <column name="TipoRegion" length="50" not-null="true" />
+        </property>
+        <set name="paises" table="pais" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdTipoRegion" not-null="true" />
+            </key>
+            <one-to-many class="modelos.Pais" />
+        </set>
+    </class>
+</hibernate-mapping>
